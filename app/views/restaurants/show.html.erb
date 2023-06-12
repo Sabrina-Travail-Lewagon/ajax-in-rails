@@ -1,0 +1,18 @@
+<div class="container" data-controller="insert-in-list" data-insert-in-list-attribut-value="afterbegin">
+  <div class="row">
+    	<h1><%= @restaurant.name %><small><%= @restaurant.address %></small></h1>
+      <h2><%= pluralize @restaurant.reviews.size, "review" %></h2>
+      <div data-insert-in-list-target="reviews">
+        <% if  @restaurant.reviews.blank? %>
+          Be the first to leave a review for <%= @restaurant.name %>
+        <% else %>
+          <% @restaurant.reviews.each do |review| %>
+            <%= render 'review', review: review %>
+          <% end %>
+        <% end %>
+      </div>
+    <%= render 'reviews/form', restaurant: @restaurant, review: @review %>
+</div>
+  <p class="mt-2"><%= link_to "Retour à la liste des restaurants", restaurants_path %></p>
+
+</div>
