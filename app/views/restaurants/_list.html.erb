@@ -1,0 +1,8 @@
+  <div class="row" data-refresh-list-target="list">
+    	<h1>Liste des Restaurants</h1>
+      <ul>
+        <% @restaurants.each do |restaurant| %>
+            <li><%= link_to restaurant.name, restaurant_path(restaurant) %></li>
+        <% end %>
+      </ul>
+  </div>
